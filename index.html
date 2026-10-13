@@ -2,98 +2,305 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Our Little World ❤️</title>
+
 <style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  background: #fff5f5;
-  color: #623e4b;
+  background: #fff8f6;
+  color: #60424b;
   font-family: Georgia, serif;
   text-align: center;
 }
+
 header {
-  padding: 80px 20px;
-  background: #f8dce5;
+  padding: 85px 20px 70px;
+  background: linear-gradient(145deg, #f4cbd7, #fff0e8);
 }
-h1 { font-size: 48px; }
-section { padding: 35px 20px; }
-.card {
-  background: white;
-  border-radius: 18px;
-  padding: 25px;
-  max-width: 600px;
-  margin: 20px auto;
-  line-height: 1.8;
+
+.small {
+  letter-spacing: 3px;
+  font-size: 11px;
 }
+
+h1 {
+  font-size: clamp(43px, 9vw, 72px);
+  font-weight: normal;
+  margin: 20px 0;
+}
+
+h2 {
+  color: #b45473;
+  font-weight: normal;
+}
+
+p {
+  line-height: 1.9;
+}
+
 button {
-  background: #c64f75;
-  color: white;
-  border: 0;
+  border: none;
   border-radius: 30px;
   padding: 15px 25px;
+  background: #bd5473;
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
   cursor: pointer;
-  font-size: 16px;
 }
+
+button:hover {
+  background: #98405c;
+}
+
+section {
+  max-width: 760px;
+  margin: auto;
+  padding: 45px 20px;
+}
+
+.card {
+  background: white;
+  padding: 28px 22px;
+  margin: 20px 0;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px #8b52600d;
+}
+
+.heart {
+  font-size: 30px;
+  color: #c65a7a;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #f5e1e6;
+}
+
 #surprise {
   display: none;
-  background: #ffe8ef;
+  background: #fff0f4;
+  margin-top: 25px;
+  padding: 25px 18px;
+  border-radius: 18px;
+  animation: appear 0.8s ease;
 }
-footer { padding: 30px; }
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer {
+  padding: 35px 20px;
+  background: #f7dce4;
+}
+
+@media (max-width: 420px) {
+  .gallery img {
+    height: 175px;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header>
-  <p>MADE WITH LOVE ❤️</p>
+  <div class="heart">♡</div>
+  <p class="small">A LITTLE WEBSITE, A LOT OF LOVE</p>
+
   <h1>Our Little World</h1>
+
   <h2>Samiksha ♡ Bhagwat</h2>
-  <p>My favourite place is beside you.</p>
+
+  <p>
+    Out of all the people in this world,<br>
+    I'm so glad I found you.
+  </p>
+
+  <br>
+
+  <a href="#ourstory">
+    <button>Our Story ↓</button>
+  </a>
 </header>
 
-<section>
+<section id="ourstory">
+
   <div class="card">
-    <h2>Our Love Story 💕</h2>
-    <p>From our beautiful beginning to building
-    our little world together in Japan, every
-    moment with you is special.</p>
+    <div class="heart">♡</div>
+    <h2>Our Love Story</h2>
+
+    <p>
+      From our first moments together to building
+      our little world in Japan, every chapter
+      with you is precious to me.
+    </p>
+
+    <p>
+      Life isn't always perfect, but having you
+      beside me makes everything feel a little
+      more beautiful.
+    </p>
   </div>
 
   <div class="card">
     <h2>A Letter for My Husband 💌</h2>
-    <p>Dear Bhagwat,</p>
-    <p>Thank you for loving me, caring for me,
-    and making ordinary days feel beautiful.
-    You are my comfort, my happiness, and my home.</p>
-    <p>I would choose you, in every lifetime.</p>
-    <p>Forever yours,<br><b>Samiksha ❤️</b></p>
+
+    <p>My dearest Bhagwat,</p>
+
+    <p>
+      Thank you for caring for me in all the little
+      ways that mean so much. Thank you for your
+      patience, your love, your hugs, and for making
+      me feel that I never have to face life alone.
+    </p>
+
+    <p>
+      You are my favourite person to laugh with,
+      my comfort on difficult days, and the person
+      I want beside me for all the ordinary moments
+      that make a beautiful life.
+    </p>
+
+    <p>
+      If I could choose all over again,
+      I would still choose you.
+    </p>
+
+    <p>
+      With all my love,<br>
+      <strong>Your Samiksha ❤️</strong>
+    </p>
   </div>
 
   <div class="card">
-    <h2>Our Memories 📸</h2>
-    <p>Our favourite photos will live here.
-    Let's fill this little world with memories!</p>
+    <h2>Our Beautiful Memories 📸</h2>
+
+    <p>
+      A little collection of moments
+      that mean the world to me.
+    </p>
+
+    <div class="gallery">
+
+      <!-- Replace these filenames with your uploaded photo names -->
+
+      <img src="photo1.jpg"
+           alt="Our first favourite memory">
+
+      <img src="photo2.jpg"
+           alt="A beautiful moment together">
+
+      <img src="photo3.jpg"
+           alt="Another lovely memory">
+
+      <img src="photo4.jpg"
+           alt="Our little world together">
+
+    </div>
+
+    <p>
+      Every picture has a story.
+      My favourite ones have you in them.
+    </p>
   </div>
 
   <div class="card">
     <h2>A Little Surprise 🎁</h2>
-    <p>Bhagwat, I made something just for you.</p>
-    <button onclick="document.getElementById('surprise').style.display='block'">
+
+    <p>
+      Bhagwat, there's one more thing
+      I want you to know.
+    </p>
+
+    <button onclick="revealLove()">
       Tap Here, My Love ❤️
     </button>
-    <div id="surprise" class="card">
-      <h2>I Love You! ❤️</h2>
-      <p>You are my today, my tomorrow,
-      and my always. No matter where life takes us,
-      I want to keep choosing you, every single day.</p>
-      <p>Forever and ever — your Samiksha 💋</p>
+
+    <div id="surprise">
+      <div class="heart">♥</div>
+
+      <h2>You Are My Always</h2>
+
+      <p>
+        You are my today, my tomorrow,
+        and all the little days in between.
+      </p>
+
+      <p>
+        Thank you for being my partner,
+        my safe place, and my favourite
+        person in the entire world.
+      </p>
+
+      <p>
+        Wherever life takes us,
+        I want to keep choosing you,
+        laughing with you, growing with you,
+        and loving you a little more every day.
+      </p>
+
+      <h2>I Love You, Bhagwat! 💗</h2>
+
+      <p>Forever yours,<br>Samiksha ♡</p>
+
+      <div id="hearts" style="font-size:24px">
+        💗 💕 💗
+      </div>
     </div>
   </div>
+
 </section>
 
 <footer>
-  Same team · Same dreams · Forever us ❤️
+  <p>Same team · Same dreams · Forever us</p>
+  <div class="heart">♡</div>
+  <p>Samiksha & Bhagwat</p>
+  <p>Made with love, just for you.</p>
 </footer>
+
+<script>
+function revealLove() {
+  const surprise = document.getElementById("surprise");
+
+  surprise.style.display = "block";
+
+  document.getElementById("hearts").textContent =
+    "💗 💕 💖 💞 💗";
+
+  surprise.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+</script>
 
 </body>
 </html>
