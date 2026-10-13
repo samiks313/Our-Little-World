@@ -3,314 +3,711 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Little World ♡</title>
+<title>Our Little World ❤️</title>
 
 <style>
-:root {
-  --pink: #e8a4b4;
-  --rose: #a84d67;
-  --cream: #fffaf5;
-  --ink: #503b40;
-}
-* { box-sizing: border-box; }
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+:root {
+  --pink: #f8dce5;
+  --deep: #8d294b;
+  --wine: #65223b;
+  --cream: #fff9f6;
+  --rose: #d98da6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   font-family: Georgia, "Times New Roman", serif;
-  color: var(--ink);
   background: var(--cream);
+  color: var(--wine);
+  overflow-x: hidden;
 }
-header {
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 25px 12px 18px;
-  background: #fff0f2;
+  padding: 45px 20px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at top, #fff8fa 0%, transparent 55%),
+    linear-gradient(145deg, #fbe7ec, #f5cedb, #fff2eb);
 }
-.brand { font-size: 30px; font-style: italic; }
-.subtitle {
+
+.eyebrow {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
   font-size: 11px;
-  letter-spacing: 3px;
-  margin-top: 9px;
+  margin-bottom: 22px;
+  color: #9d506b;
 }
+
+.hero h1 {
+  font-size: clamp(48px, 10vw, 88px);
+  line-height: 1.1;
+  font-weight: normal;
+  color: var(--deep);
+  margin-bottom: 22px;
+}
+
+.hero h1 span {
+  font-style: italic;
+}
+
+.hero .intro {
+  max-width: 540px;
+  font-size: clamp(17px, 3vw, 21px);
+  line-height: 1.9;
+  margin: 0 auto 30px;
+  color: #754157;
+}
+
+.heart {
+  font-size: 30px;
+  margin-bottom: 20px;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.15); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.1); }
+}
+
+.main-button {
+  border: 1px solid #a94e70;
+  color: white;
+  background: linear-gradient(135deg, #b44d72, #7e2949);
+  padding: 15px 28px;
+  border-radius: 40px;
+  font-size: 15px;
+  box-shadow: 0 8px 25px #a34d702c;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.main-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px #a34d7045;
+}
+
+.small-note {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 24px;
+  color: #a46c80;
+}
+
 nav {
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 10;
   display: flex;
   justify-content: center;
+  gap: 8px;
   flex-wrap: wrap;
-  gap: 7px;
-  padding: 12px 6px;
-  background: #fffaf5;
-  border-bottom: 1px solid #f0dfe0;
+  padding: 14px 10px;
+  background: #fff9f5ed;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #f1d9e1;
 }
-nav button, .action {
-  border: 1px solid #e8bdc6;
-  border-radius: 30px;
-  padding: 10px 15px;
-  background: white;
-  color: var(--rose);
-  font: inherit;
-  cursor: pointer;
-}
-nav button.active, .action {
-  background: var(--rose);
-  color: white;
-}
-.screen {
-  display: none;
-  max-width: 850px;
-  min-height: 65vh;
-  margin: auto;
-  padding: 40px 20px 55px;
-  text-align: center;
-}
-.screen.active { display: block; }
-.eyebrow {
-  color: var(--rose);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-size: 11px;
-}
-h1 {
-  font-size: clamp(35px, 7vw, 58px);
-  font-weight: normal;
-  margin: 18px 0;
-}
-h2 { font-weight: normal; }
-p { line-height: 1.9; }
-.hero {
-  min-height: 340px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.heart { font-size: 38px; color: var(--rose); }
-.note {
-  max-width: 620px;
-  margin: 25px auto;
-  padding: 25px;
-  background: white;
-  border: 1px solid #f0dfe0;
-  border-radius: 18px;
-  box-shadow: 0 8px 25px #8d52600b;
-}
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 28px;
-}
-.photo-card {
-  margin: 0;
-  padding: 10px 10px 16px;
-  background: white;
-  border: 1px solid #f0dfe0;
-  border-radius: 12px;
-}
-.photo-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  display: block;
-  border-radius: 7px;
-  background: #f8e8e8;
-}
-.photo-card figcaption {
-  padding-top: 13px;
-  font-style: italic;
-}
-.letter {
-  text-align: left;
-  font-size: 17px;
-}
-.surprise-box {
-  margin: 30px auto;
-  padding: 30px 20px;
-  max-width: 560px;
-  border-radius: 20px;
-  background: #fff0f2;
-}
-#secret { display: none; }
-#secret.show { display: block; }
-footer {
-  text-align: center;
-  padding: 25px 12px;
-  background: #fff0f2;
+
+nav button {
+  border: none;
+  background: transparent;
+  color: #85415b;
+  padding: 10px 13px;
+  border-radius: 25px;
   font-size: 13px;
 }
-@media(max-width:480px) {
-  nav button { padding: 9px 11px; font-size: 13px; }
-  .screen { padding: 30px 14px 45px; }
-  .photo-grid { gap: 9px; }
-  .photo-card img { height: 180px; }
+
+nav button:hover,
+nav button.active {
+  background: #f5dce5;
+  color: #702440;
+}
+
+.page {
+  display: none;
+  min-height: 75vh;
+  padding: 65px 20px 80px;
+  animation: fadeIn .6s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.section-heading .overline {
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 10px;
+  color: #b16b83;
+  margin-bottom: 15px;
+}
+
+.section-heading h2 {
+  font-size: clamp(34px, 7vw, 52px);
+  font-weight: normal;
+  color: var(--deep);
+  margin-bottom: 16px;
+}
+
+.section-heading p {
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: auto;
+  color: #86566a;
+}
+
+.love-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(25px, 6vw, 55px);
+  background: #fffdfb;
+  border: 1px solid #efd4de;
+  box-shadow: 0 15px 50px #8c365010;
+  text-align: center;
+}
+
+.love-card .ornament {
+  font-size: 27px;
+  color: #c47c95;
+  margin-bottom: 22px;
+}
+
+.love-card p {
+  font-size: 18px;
+  line-height: 2;
+  margin-bottom: 20px;
+  color: #77445a;
+}
+
+.signature {
+  font-style: italic;
+  font-size: 27px;
+  color: #a43e64;
+  margin-top: 25px;
+}
+
+.memories-grid {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.memory {
+  background: #fffdfb;
+  padding: 12px 12px 24px;
+  border: 1px solid #efd9e0;
+  box-shadow: 0 8px 25px #74304c0b;
+  text-align: center;
+}
+
+.memory img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 650px;
+  object-fit: contain;
+  background: #f9eaf0;
+}
+
+.memory h3 {
+  font-size: 23px;
+  font-weight: normal;
+  margin: 20px 5px 10px;
+  color: #913956;
+}
+
+.memory p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #895a6d;
+  padding: 0 8px;
+}
+
+.letter {
+  max-width: 760px;
+  margin: auto;
+  background: #fffaf5;
+  padding: clamp(25px, 7vw, 65px);
+  border: 1px solid #ead1d4;
+  box-shadow: 0 12px 40px #71354b10;
+}
+
+.letter .to {
+  font-style: italic;
+  font-size: 27px;
+  color: #a13c61;
+  margin-bottom: 25px;
+}
+
+.letter p {
+  font-size: 17px;
+  line-height: 2;
+  margin-bottom: 20px;
+  color: #754557;
+}
+
+.letter .from {
+  text-align: right;
+  margin-top: 30px;
+  font-style: italic;
+  font-size: 23px;
+  color: #a13c61;
+}
+
+.surprise-box {
+  max-width: 650px;
+  margin: auto;
+  text-align: center;
+  padding: 35px 20px;
+}
+
+.gift {
+  font-size: 76px;
+  margin: 15px 0 28px;
+  animation: heartbeat 2s infinite;
+}
+
+.hidden-message {
+  display: none;
+  margin: 35px auto 0;
+  padding: 30px;
+  max-width: 600px;
+  background: #fff7fa;
+  border: 1px solid #eccbd7;
+  animation: fadeIn .8s ease;
+}
+
+.hidden-message.show {
+  display: block;
+}
+
+.hidden-message p {
+  font-size: 18px;
+  line-height: 2;
+  color: #754157;
+  margin-bottom: 17px;
+}
+
+footer {
+  text-align: center;
+  padding: 35px 20px;
+  background: #f8e3e9;
+  color: #8c4b63;
+}
+
+footer p {
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+footer .footer-heart {
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.floating-heart {
+  position: fixed;
+  bottom: -30px;
+  z-index: 20;
+  pointer-events: none;
+  animation: floatUp 5s linear forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  15% { opacity: .8; }
+  100% { transform: translateY(-110vh) rotate(35deg); opacity: 0; }
+}
+
+@media (max-width: 600px) {
+  nav {
+    gap: 2px;
+    padding: 9px 4px;
+  }
+
+  nav button {
+    padding: 9px 8px;
+    font-size: 12px;
+  }
+
+  .page {
+    padding: 48px 15px 60px;
+  }
+
+  .memories-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    gap: 20px;
+  }
+
+  .memory img {
+    height: auto;
+    max-height: 550px;
+  }
+
+  .hero .intro {
+    line-height: 1.8;
+  }
+
+  .love-card p,
+  .letter p,
+  .hidden-message p {
+    font-size: 16px;
+  }
 }
 </style>
 </head>
 
 <body>
-<header>
-  <div class="brand">Our Little World ♡</div>
-  <div class="subtitle">SAMIKSHA &amp; BHAGWAT</div>
+
+<header class="hero">
+  <div class="eyebrow">A little place made just for us</div>
+  <div class="heart">❤️</div>
+  <h1>Our Little<br><span>World</span></h1>
+
+  <p class="intro">
+    For the man who made my world feel like home.
+    For my Bhagwat, my favourite person, my today
+    and all the tomorrows I dream of.
+  </p>
+
+  <button class="main-button" onclick="showPage('home')">
+    Open My Heart 💌
+  </button>
+
+  <div class="small-note">YOU & ME · ALWAYS AND FOREVER</div>
 </header>
 
-<nav aria-label="Main navigation">
-  <button class="active" data-screen="home">Home ♡</button>
-  <button data-screen="memories">Memories 📸</button>
-  <button data-screen="letter">Love Letter 💌</button>
-  <button data-screen="surprise">Surprise 🎁</button>
+<nav aria-label="Website navigation">
+  <button class="active" onclick="showPage('home', this)">Our Story ♡</button>
+  <button onclick="showPage('memories', this)">Memories 📸</button>
+  <button onclick="showPage('letter', this)">Love Letter 💌</button>
+  <button onclick="showPage('surprise', this)">Surprise 🎁</button>
 </nav>
 
 <main>
-  <!-- HOME -->
-  <section id="home" class="screen active">
-    <div class="hero">
-      <div class="heart">♡</div>
-      <div class="eyebrow">A little place, just for us</div>
-      <h1>Our Little World</h1>
-      <p>Two hearts, one home, and a thousand little moments.</p>
-      <p>Welcome to our story, my love.</p>
-      <button class="action" data-go="memories">
-        Explore Our Memories →
-      </button>
-    </div>
 
-    <div class="note">
-      <h2>To My Favourite Person ♡</h2>
-      <p>
-        Out of all the people in this world,
-        I'm so glad I get to do life with you.
-      </p>
-      <p>
-        Every ordinary day becomes special when
-        it's with you. You are my favourite part of life.
-      </p>
-    </div>
-  </section>
+<section id="home" class="page active">
+  <div class="section-heading">
+    <div class="overline">To my favourite human</div>
+    <h2>My Kind of Forever</h2>
+    <p>Some feelings are too big for words, but I'll spend my whole life trying to tell you.</p>
+  </div>
 
-  <!-- MEMORIES -->
-  <section id="memories" class="screen">
-    <div class="eyebrow">Little moments, forever memories</div>
-    <h1>Our Memories 📸</h1>
-    <p>Every picture holds a little piece of our story.</p>
+  <div class="love-card">
+    <div class="ornament">♡ ❀ ♡</div>
 
-    <div class="photo-grid">
-      <figure class="photo-card">
-        <img src="AP001385.JPG" alt="Our favourite memory">
-        <figcaption>My Favourite Person ♡</figcaption>
-      </figure>
+    <p>Dear Bhagwat,</p>
 
-      <figure class="photo-card">
-        <img src="YSW02168.JPG" alt="A special moment together">
-        <figcaption>Us, Being Us ♡</figcaption>
-      </figure>
-    </div>
+    <p>
+      Before you, I never knew that one person could feel like
+      a whole world. You came into my life and slowly became
+      my favourite hello, my safest place, and the person I
+      want to tell everything to.
+    </p>
 
-    <p>Our story is made of little moments like these. ♡</p>
-  </section>
+    <p>
+      I love the little things about us — our silly moments,
+      our laughter over nothing, our ordinary days, and the
+      way even a simple moment feels special when I'm with you.
+    </p>
 
-  <!-- LOVE LETTER -->
-  <section id="letter" class="screen">
-    <div class="eyebrow">From my heart to yours</div>
-    <h1>A Letter for You 💌</h1>
+    <p>
+      I don't need a perfect life. I just want a real one with you.
+      A life where we keep choosing each other, where we grow
+      together, where we hold hands through the difficult days
+      and laugh about them when they become memories.
+    </p>
 
-    <article class="note letter">
-      <p>My dearest Bhagwat,</p>
+    <p>
+      If home could be a person, it would be you.
+      And if I could choose my favourite place in this entire
+      world, it would always be right beside you.
+    </p>
 
-      <p>
-        If I could choose my favourite place in the world,
-        it would be right beside you. You make ordinary
-        days beautiful and difficult days easier.
-      </p>
+    <p>
+      Thank you for being my husband, my partner, my comfort,
+      and one of the most beautiful parts of my life.
+    </p>
 
-      <p>
-        Thank you for caring for me, making me smile,
-        and loving me in all the little ways that mean
-        so much. I hope you always know how special
-        you are to me.
-      </p>
+    <div class="signature">Forever yours, Samiksha ❤️</div>
+  </div>
+</section>
 
-      <p>
-        Wherever life takes us, I want to keep making
-        memories, laughing at silly things, and choosing
-        each other every single day.
-      </p>
+<section id="memories" class="page">
+  <div class="section-heading">
+    <div class="overline">Little moments, endless love</div>
+    <h2>Our Memories</h2>
+    <p>Every picture holds a moment. Every moment holds a piece of my heart.</p>
+  </div>
 
-      <p>
-        You're not just part of my story.
-        You're my favourite part of it.
-      </p>
+  <div class="memories-grid">
 
-      <p>Forever your girl,</p>
-      <p><strong>Samiksha ♡</strong></p>
+    <article class="memory">
+      <img src="AP001385.JPG" alt="Our special memory together">
+      <h3>My Favourite Person ❤️</h3>
+      <p>No matter how many people I meet in life, my heart will always look for you first.</p>
     </article>
-  </section>
 
-  <!-- SURPRISE -->
-  <section id="surprise" class="screen">
-    <div class="eyebrow">Psst... something for you</div>
-    <h1>A Little Surprise 🎁</h1>
+    <article class="memory">
+      <img src="YSW02147.JPG" alt="A beautiful memory together">
+      <h3>Just You and Me 🌷</h3>
+      <p>One day, these little moments will be our favourite stories to tell. I hope we make a million more.</p>
+    </article>
 
-    <div class="surprise-box">
-      <div class="heart">♡</div>
-      <p>My love, there's a little message waiting just for you.</p>
+    <article class="memory">
+      <img src="YSW02168.JPG" alt="A treasured moment together">
+      <h3>My Kind of Happiness 💗</h3>
+      <p>It's not always about big surprises. Sometimes, happiness is simply looking at you and thinking, “That's my person.”</p>
+    </article>
 
-      <button id="reveal" class="action">
-        Open Your Surprise 💗
-      </button>
+    <article class="memory">
+      <img src="YSW01671.JPG" alt="A memory I will always treasure">
+      <h3>And So, My Forever Begins ♾️</h3>
+      <p>Whatever life brings us, I hope we never stop being best friends, falling in love, and finding our way back to each other.</p>
+    </article>
 
-      <div id="secret">
-        <h2>It's Always You ♡</h2>
-        <p>
-          In every version of my future,
-          I hope I get to find you there.
-        </p>
-        <p>
-          Thank you for being my home, my happiness,
-          and my favourite hello.
-        </p>
-        <p>I love you, Bhagwat. Always. ♥</p>
-      </div>
+  </div>
+</section>
+
+<section id="letter" class="page">
+  <div class="section-heading">
+    <div class="overline">Words from my heart</div>
+    <h2>A Letter to My Bhagwat</h2>
+    <p>Things I may not say perfectly every day, but will always feel.</p>
+  </div>
+
+  <div class="letter">
+    <div class="to">My dearest Bhagwat, ❤️</div>
+
+    <p>
+      Sometimes I look at you and wonder how I got so lucky.
+      Out of all the people in this world, life gave me you —
+      the person I get to love, annoy, laugh with, and grow old with.
+    </p>
+
+    <p>
+      You may not even realise how much the little things mean to me.
+      The way you care, the way you notice things, the way you make
+      me feel loved without needing a special occasion.
+      Those are the moments my heart remembers the most.
+    </p>
+
+    <p>
+      I know we won't have perfect days every day.
+      We may disagree, get tired, or have moments when life feels
+      difficult. But I want you to know that I don't just love you
+      for the beautiful days. I want to stand beside you on the
+      difficult ones too.
+    </p>
+
+    <p>
+      I want to watch us grow — to celebrate our little wins,
+      build our dreams, make a home full of laughter, collect
+      memories in every place we go, and one day look back at
+      our life and smile at how far we've come together.
+    </p>
+
+    <p>
+      If I could ask for one thing, it would be more time with you.
+      More morning smiles, more silly conversations, more hugs
+      after a long day, more adventures, and more ordinary days
+      that become extraordinary just because we're together.
+    </p>
+
+    <p>
+      Bhagwat, you are not just the man I married.
+      You are the person my heart feels safest with, my favourite
+      part of every ordinary day, and the one I want beside me
+      in every version of my future.
+    </p>
+
+    <p>
+      If I had to live this life a thousand times, I would still
+      hope to find you in every single one.
+    </p>
+
+    <p>
+      And when we're older, with a thousand memories behind us,
+      I hope I'll still hold your hand, look at you the same way,
+      and feel that same little happiness in my heart:
+      “It's still you. It has always been you.”
+    </p>
+
+    <p>I love you more than this little letter could ever explain.</p>
+
+    <div class="from">
+      Always and endlessly yours,<br>
+      Your Samiksha ❤️
     </div>
-  </section>
+  </div>
+</section>
+
+<section id="surprise" class="page">
+  <div class="section-heading">
+    <div class="overline">A tiny secret for you</div>
+    <h2>One Last Thing, My Love</h2>
+    <p>Because even a whole website isn't enough to tell you how much you mean to me.</p>
+  </div>
+
+  <div class="surprise-box">
+    <div class="gift">🎁</div>
+
+    <p style="font-size:19px; line-height:1.9; margin-bottom:28px;">
+      My love, there's something I want you to remember,
+      even on the days when I forget to say it.
+    </p>
+
+    <button class="main-button" onclick="revealSurprise()">
+      Open Your Surprise 💗
+    </button>
+
+    <div id="hiddenMessage" class="hidden-message">
+      <div class="heart">💖</div>
+
+      <p><strong>Bhagwat, you are my answered prayer.</strong></p>
+
+      <p>
+        I don't know what every chapter of our life will look like,
+        but I know whose hand I want to hold while we turn each page.
+        Yours. Always yours.
+      </p>
+
+      <p>
+        I want a lifetime of us — sleepy morning cuddles,
+        random kisses, silly fights that end in hugs,
+        spontaneous trips, shared dreams, and a love that
+        becomes gentler and stronger with every passing year.
+      </p>
+
+      <p>
+        When the world gets loud, let's be each other's peace.
+        When life changes, let's grow together.
+        And whenever you wonder how much you mean to me,
+        remember this little corner of the internet:
+        I made it because my heart has so much love for you
+        that it needed somewhere to put it.
+      </p>
+
+      <p>
+        <strong>If I get a thousand tomorrows, I want all of them with you.</strong>
+      </p>
+
+      <p style="font-size:25px; color:#a13c61;">
+        I love you, my Bhagwat. Today, tomorrow, always. ♾️❤️
+      </p>
+
+      <div class="signature">— Your Samiksha 💋</div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer>
-  Made with love, just for us ♡<br>
-  Samiksha &amp; Bhagwat
+  <div class="footer-heart">❤️</div>
+  <p>Our Little World</p>
+  <p>Made with all my love, for Bhagwat.</p>
+  <p>Two hearts. One home. A thousand tomorrows. ♾️</p>
 </footer>
 
 <script>
-const navButtons = document.querySelectorAll("nav button");
-const screens = document.querySelectorAll(".screen");
-
-function showScreen(id) {
-  screens.forEach(screen => {
-    screen.classList.toggle("active", screen.id === id);
+function showPage(pageId, button) {
+  document.querySelectorAll('.page').forEach(function(page) {
+    page.classList.remove('active');
   });
 
-  navButtons.forEach(button => {
-    button.classList.toggle("active", button.dataset.screen === id);
+  document.getElementById(pageId).classList.add('active');
+
+  document.querySelectorAll('nav button').forEach(function(btn) {
+    btn.classList.remove('active');
   });
 
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (button) {
+    button.classList.add('active');
+  } else {
+    document.querySelectorAll('nav button')[0].classList.add('active');
+  }
+
+  document.querySelector('nav').scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
 }
 
-navButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    showScreen(button.dataset.screen);
-  });
-});
+function revealSurprise() {
+  var message = document.getElementById('hiddenMessage');
+  message.classList.toggle('show');
 
-document.querySelectorAll("[data-go]").forEach(button => {
-  button.addEventListener("click", () => {
-    showScreen(button.dataset.go);
-  });
-});
+  if (message.classList.contains('show')) {
+    message.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  }
+}
 
-document.getElementById("reveal").addEventListener("click", function() {
-  document.getElementById("secret").classList.add("show");
-  this.textContent = "Surprise Opened ♡";
-});
+// Soft floating hearts
+function createHeart() {
+  var heart = document.createElement('div');
+  heart.className = 'floating-heart';
+
+  var hearts = ['♡', '♥', '💗', '💕'];
+  heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = (14 + Math.random() * 18) + 'px';
+  heart.style.color = ['#d98da6', '#b75b7c', '#e9a9bd'][
+    Math.floor(Math.random() * 3)
+  ];
+
+  document.body.appendChild(heart);
+
+  setTimeout(function() {
+    heart.remove();
+  }, 5000);
+}
+
+setInterval(createHeart, 900);
 </script>
+
 </body>
 </html>
