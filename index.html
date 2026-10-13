@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Little World ♡</title>
+
 <style>
 :root {
-  --pink: #e7a1b0;
+  --pink: #e8a4b4;
   --rose: #a84d67;
   --cream: #fffaf5;
   --ink: #503b40;
@@ -20,11 +21,15 @@ body {
 }
 header {
   text-align: center;
-  padding: 24px 12px 14px;
-  background: #fff4f3;
+  padding: 25px 12px 18px;
+  background: #fff0f2;
 }
-.brand { font-size: 27px; font-style: italic; }
-.subtitle { font-size: 12px; letter-spacing: 3px; margin-top: 7px; }
+.brand { font-size: 30px; font-style: italic; }
+.subtitle {
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-top: 9px;
+}
 nav {
   position: sticky;
   top: 0;
@@ -32,9 +37,9 @@ nav {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 6px;
-  padding: 12px 8px;
-  background: rgba(255,250,245,.96);
+  gap: 7px;
+  padding: 12px 6px;
+  background: #fffaf5;
   border-bottom: 1px solid #f0dfe0;
 }
 nav button, .action {
@@ -50,43 +55,40 @@ nav button.active, .action {
   background: var(--rose);
   color: white;
 }
-nav button:hover, .action:hover { opacity: .85; }
 .screen {
   display: none;
   max-width: 850px;
   min-height: 65vh;
   margin: auto;
-  padding: 38px 20px 60px;
+  padding: 40px 20px 55px;
   text-align: center;
-  animation: fade .35s ease;
 }
 .screen.active { display: block; }
-@keyframes fade {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 .eyebrow {
+  color: var(--rose);
   letter-spacing: 3px;
   text-transform: uppercase;
   font-size: 11px;
-  color: var(--rose);
 }
-h1 { font-size: clamp(35px, 7vw, 58px); font-weight: normal; margin: 16px 0; }
-h2 { font-size: 30px; font-weight: normal; }
-p { line-height: 1.85; }
+h1 {
+  font-size: clamp(35px, 7vw, 58px);
+  font-weight: normal;
+  margin: 18px 0;
+}
+h2 { font-weight: normal; }
+p { line-height: 1.9; }
 .hero {
-  min-height: 320px;
+  min-height: 340px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 30px 12px;
 }
-.heart { font-size: 35px; color: var(--rose); }
+.heart { font-size: 38px; color: var(--rose); }
 .note {
   max-width: 620px;
-  margin: 24px auto;
-  padding: 24px;
+  margin: 25px auto;
+  padding: 25px;
   background: white;
   border: 1px solid #f0dfe0;
   border-radius: 18px;
@@ -95,64 +97,57 @@ p { line-height: 1.85; }
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 25px;
+  gap: 16px;
+  margin-top: 28px;
 }
 .photo-card {
-  padding: 9px 9px 14px;
+  margin: 0;
+  padding: 10px 10px 16px;
   background: white;
   border: 1px solid #f0dfe0;
   border-radius: 12px;
-  transform: rotate(-1deg);
 }
-.photo-card:nth-child(even) { transform: rotate(1deg); }
 .photo-card img {
-  display: block;
   width: 100%;
-  height: 220px;
+  height: 260px;
   object-fit: cover;
+  display: block;
   border-radius: 7px;
   background: #f8e8e8;
 }
-.photo-card figcaption { padding-top: 12px; font-style: italic; }
-.photo-card img.broken { display: none; }
-.photo-placeholder {
-  display: none;
-  height: 220px;
-  border-radius: 7px;
-  background: #f8e8e8;
-  color: #9d6977;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  font-size: 14px;
+.photo-card figcaption {
+  padding-top: 13px;
+  font-style: italic;
 }
-.letter { text-align: left; font-size: 17px; }
+.letter {
+  text-align: left;
+  font-size: 17px;
+}
 .surprise-box {
   margin: 30px auto;
-  padding: 32px 20px;
+  padding: 30px 20px;
   max-width: 560px;
   border-radius: 20px;
-  background: #fff1f2;
+  background: #fff0f2;
 }
 #secret { display: none; }
-#secret.show { display: block; animation: fade .5s ease; }
+#secret.show { display: block; }
 footer {
   text-align: center;
   padding: 25px 12px;
+  background: #fff0f2;
   font-size: 13px;
-  background: #fff4f3;
 }
-@media (max-width: 480px) {
+@media(max-width:480px) {
   nav button { padding: 9px 11px; font-size: 13px; }
-  .photo-grid { gap: 9px; }
-  .photo-card img, .photo-placeholder { height: 165px; }
   .screen { padding: 30px 14px 45px; }
+  .photo-grid { gap: 9px; }
+  .photo-card img { height: 180px; }
 }
 </style>
 </head>
-<body>
 
+<body>
 <header>
   <div class="brand">Our Little World ♡</div>
   <div class="subtitle">SAMIKSHA &amp; BHAGWAT</div>
@@ -166,6 +161,7 @@ footer {
 </nav>
 
 <main>
+  <!-- HOME -->
   <section id="home" class="screen active">
     <div class="hero">
       <div class="heart">♡</div>
@@ -173,70 +169,106 @@ footer {
       <h1>Our Little World</h1>
       <p>Two hearts, one home, and a thousand little moments.</p>
       <p>Welcome to our story, my love.</p>
-      <button class="action" data-go="memories">Explore our memories →</button>
+      <button class="action" data-go="memories">
+        Explore Our Memories →
+      </button>
     </div>
+
     <div class="note">
-      <h2>To my favourite person</h2>
-      <p>Out of all the people in this world, I'm so glad I get to do life with you.</p>
-      <p>Every ordinary day becomes special when it's with you. ♡</p>
+      <h2>To My Favourite Person ♡</h2>
+      <p>
+        Out of all the people in this world,
+        I'm so glad I get to do life with you.
+      </p>
+      <p>
+        Every ordinary day becomes special when
+        it's with you. You are my favourite part of life.
+      </p>
     </div>
   </section>
 
+  <!-- MEMORIES -->
   <section id="memories" class="screen">
     <div class="eyebrow">Little moments, forever memories</div>
     <h1>Our Memories 📸</h1>
     <p>Every picture holds a little piece of our story.</p>
+
     <div class="photo-grid">
       <figure class="photo-card">
-        <img src="photo1.jpg" alt="Our favourite memory" onerror="this.classList.add('broken');this.nextElementSibling.style.display='flex'">
-        <div class="photo-placeholder">Add your first photo: photo1.jpg</div>
-        <figcaption>My favourite person ♡</figcaption>
+        <img src="AP001385.JPG" alt="Our favourite memory">
+        <figcaption>My Favourite Person ♡</figcaption>
       </figure>
+
       <figure class="photo-card">
-        <img src="photo2.jpg" alt="A special moment together" onerror="this.classList.add('broken');this.nextElementSibling.style.display='flex'">
-        <div class="photo-placeholder">Add your second photo: photo2.jpg</div>
-        <figcaption>Us, being us</figcaption>
-      </figure>
-      <figure class="photo-card">
-        <img src="photo3.jpg" alt="A happy memory" onerror="this.classList.add('broken');this.nextElementSibling.style.display='flex'">
-        <div class="photo-placeholder">Add your third photo: photo3.jpg</div>
-        <figcaption>A moment to keep</figcaption>
-      </figure>
-      <figure class="photo-card">
-        <img src="photo4.jpg" alt="Another memory together" onerror="this.classList.add('broken');this.nextElementSibling.style.display='flex'">
-        <div class="photo-placeholder">Add your fourth photo: photo4.jpg</div>
-        <figcaption>Always my favourite</figcaption>
+        <img src="YSW02168.JPG" alt="A special moment together">
+        <figcaption>Us, Being Us ♡</figcaption>
       </figure>
     </div>
-    <p><small>Our story is made of little moments like these.</small></p>
+
+    <p>Our story is made of little moments like these. ♡</p>
   </section>
 
+  <!-- LOVE LETTER -->
   <section id="letter" class="screen">
     <div class="eyebrow">From my heart to yours</div>
     <h1>A Letter for You 💌</h1>
+
     <article class="note letter">
       <p>My dearest Bhagwat,</p>
-      <p>If I could choose my favourite place in the world, it would be right beside you. You make the ordinary feel beautiful and the difficult days feel a little easier.</p>
-      <p>Thank you for caring for me, making me smile, and loving me in all the little ways that mean so much. I may not always find the perfect words, but I hope you always feel how special you are to me.</p>
-      <p>Wherever life takes us, I want to keep making memories, laughing at silly things, learning together, and choosing each other every day.</p>
-      <p>You're not just part of my story. You're my favourite part of it.</p>
+
+      <p>
+        If I could choose my favourite place in the world,
+        it would be right beside you. You make ordinary
+        days beautiful and difficult days easier.
+      </p>
+
+      <p>
+        Thank you for caring for me, making me smile,
+        and loving me in all the little ways that mean
+        so much. I hope you always know how special
+        you are to me.
+      </p>
+
+      <p>
+        Wherever life takes us, I want to keep making
+        memories, laughing at silly things, and choosing
+        each other every single day.
+      </p>
+
+      <p>
+        You're not just part of my story.
+        You're my favourite part of it.
+      </p>
+
       <p>Forever your girl,</p>
       <p><strong>Samiksha ♡</strong></p>
     </article>
   </section>
 
+  <!-- SURPRISE -->
   <section id="surprise" class="screen">
     <div class="eyebrow">Psst... something for you</div>
     <h1>A Little Surprise 🎁</h1>
+
     <div class="surprise-box">
       <div class="heart">♡</div>
       <p>My love, there's a little message waiting just for you.</p>
-      <button id="reveal" class="action">Open your surprise 💗</button>
+
+      <button id="reveal" class="action">
+        Open Your Surprise 💗
+      </button>
+
       <div id="secret">
-        <h2>It's always you.</h2>
-        <p>In every version of my future, I hope I get to find you there.</p>
-        <p>Thank you for being my home, my happiness, and my favourite hello. I love you, Bhagwat. ♡</p>
-        <div class="heart">♥</div>
+        <h2>It's Always You ♡</h2>
+        <p>
+          In every version of my future,
+          I hope I get to find you there.
+        </p>
+        <p>
+          Thank you for being my home, my happiness,
+          and my favourite hello.
+        </p>
+        <p>I love you, Bhagwat. Always. ♥</p>
       </div>
     </div>
   </section>
@@ -248,30 +280,36 @@ footer {
 </footer>
 
 <script>
-const buttons = document.querySelectorAll("nav button");
+const navButtons = document.querySelectorAll("nav button");
 const screens = document.querySelectorAll(".screen");
 
 function showScreen(id) {
   screens.forEach(screen => {
     screen.classList.toggle("active", screen.id === id);
   });
-  buttons.forEach(button => {
+
+  navButtons.forEach(button => {
     button.classList.toggle("active", button.dataset.screen === id);
   });
+
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-buttons.forEach(button => {
-  button.addEventListener("click", () => showScreen(button.dataset.screen));
+navButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    showScreen(button.dataset.screen);
+  });
 });
 
 document.querySelectorAll("[data-go]").forEach(button => {
-  button.addEventListener("click", () => showScreen(button.dataset.go));
+  button.addEventListener("click", () => {
+    showScreen(button.dataset.go);
+  });
 });
 
 document.getElementById("reveal").addEventListener("click", function() {
   document.getElementById("secret").classList.add("show");
-  this.textContent = "Surprise opened ♡";
+  this.textContent = "Surprise Opened ♡";
 });
 </script>
 </body>
