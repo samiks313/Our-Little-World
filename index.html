@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Our Little World ❤️</title>
 
 <style>
@@ -17,7 +18,6 @@
   --deep: #8d294b;
   --wine: #65223b;
   --cream: #fff9f6;
-  --rose: #d98da6;
 }
 
 html {
@@ -44,20 +44,23 @@ button {
   justify-content: center;
   text-align: center;
   padding: 45px 20px;
-  position: relative;
-  overflow: hidden;
   background:
     radial-gradient(ellipse at top, #fff8fa 0%, transparent 55%),
     linear-gradient(145deg, #fbe7ec, #f5cedb, #fff2eb);
 }
 
-.eyebrow {
-  letter-spacing: 5px;
-  text-transform: uppercase;
+.eyebrow,
+.small-note,
+.overline {
   font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
   font-size: 11px;
-  margin-bottom: 22px;
   color: #9d506b;
+}
+
+.eyebrow {
+  margin-bottom: 22px;
 }
 
 .hero h1 {
@@ -101,18 +104,14 @@ button {
   border-radius: 40px;
   font-size: 15px;
   box-shadow: 0 8px 25px #a34d702c;
-  transition: transform .25s, box-shadow .25s;
+  transition: transform .25s;
 }
 
 .main-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px #a34d7045;
 }
 
 .small-note {
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  letter-spacing: 2px;
   margin-top: 24px;
   color: #a46c80;
 }
@@ -167,12 +166,7 @@ nav button.active {
   margin-bottom: 42px;
 }
 
-.section-heading .overline {
-  font-family: Arial, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 10px;
-  color: #b16b83;
+.overline {
   margin-bottom: 15px;
 }
 
@@ -193,7 +187,7 @@ nav button.active {
 
 .love-card {
   max-width: 760px;
-  margin: 0 auto;
+  margin: auto;
   padding: clamp(25px, 6vw, 55px);
   background: #fffdfb;
   border: 1px solid #efd4de;
@@ -201,13 +195,14 @@ nav button.active {
   text-align: center;
 }
 
-.love-card .ornament {
+.ornament {
   font-size: 27px;
   color: #c47c95;
   margin-bottom: 22px;
 }
 
-.love-card p {
+.love-card p,
+.letter p {
   font-size: 18px;
   line-height: 2;
   margin-bottom: 20px;
@@ -277,13 +272,6 @@ nav button.active {
   margin-bottom: 25px;
 }
 
-.letter p {
-  font-size: 17px;
-  line-height: 2;
-  margin-bottom: 20px;
-  color: #754557;
-}
-
 .letter .from {
   text-align: right;
   margin-top: 30px;
@@ -292,38 +280,240 @@ nav button.active {
   color: #a13c61;
 }
 
-.surprise-box {
-  max-width: 650px;
-  margin: auto;
+/* STARRY NIGHT SURPRISE */
+
+#surprise {
+  background: #080b20;
+  color: #fff;
+  padding: 0;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#surprise .section-heading {
+  padding: 55px 20px 15px;
+  margin: 0;
+}
+
+#surprise .overline {
+  color: #d8b4ee;
+}
+
+#surprise .section-heading h2 {
+  color: #fff0fb;
+}
+
+#surprise .section-heading p {
+  color: #d4c8e8;
+}
+
+.star-universe {
+  position: relative;
+  min-height: 650px;
+  padding: 25px 20px 65px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%, #30204e 0%, #14152f 43%, #080b20 80%);
+}
+
+.star-universe::before,
+.star-universe::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.star-universe::before {
+  width: 240px;
+  height: 240px;
+  background: #b47bff12;
+  filter: blur(35px);
+  top: 18%;
+  left: 10%;
+}
+
+.star-universe::after {
+  width: 260px;
+  height: 260px;
+  background: #ed9dcf12;
+  filter: blur(45px);
+  bottom: 10%;
+  right: 5%;
+}
+
+.star-intro {
   text-align: center;
-  padding: 35px 20px;
+  max-width: 570px;
+  margin: 0 auto 25px;
+  position: relative;
+  z-index: 1;
 }
 
-.gift {
-  font-size: 76px;
-  margin: 15px 0 28px;
-  animation: heartbeat 2s infinite;
+.star-intro p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #ded4ef;
 }
 
-.hidden-message {
+.star-intro .hint {
+  font-size: 12px;
+  color: #b7a4d6;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.star-map {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  height: 340px;
+  margin: 0 auto;
+}
+
+.star-line {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: .5;
+}
+
+.star-line path {
+  fill: none;
+  stroke: #c5a9ff;
+  stroke-width: 1;
+  stroke-dasharray: 4 7;
+}
+
+.star {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 0;
+  background: transparent;
+  color: #fff6c8;
+  font-size: 33px;
+  text-shadow: 0 0 8px #fff, 0 0 22px #d6b4ff;
+  padding: 12px;
+  transition: transform .25s, color .25s;
+  animation: twinkle 2.3s infinite ease-in-out;
+  z-index: 2;
+}
+
+.star:hover {
+  transform: translate(-50%, -50%) scale(1.35);
+}
+
+.star.found {
+  color: #ffb5dc;
+  text-shadow: 0 0 8px #ff9fd5, 0 0 28px #ff85c6;
+}
+
+.star .star-number {
+  display: block;
+  font: 10px Arial, sans-serif;
+  color: #e4d8ff;
+  margin-top: 2px;
+  text-shadow: none;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: .7; }
+  50% { opacity: 1; }
+}
+
+.star:nth-of-type(2) { animation-delay: .4s; }
+.star:nth-of-type(3) { animation-delay: .8s; }
+.star:nth-of-type(4) { animation-delay: 1.2s; }
+.star:nth-of-type(5) { animation-delay: .6s; }
+.star:nth-of-type(6) { animation-delay: 1.5s; }
+
+.star-message {
+  position: relative;
+  z-index: 1;
   display: none;
-  margin: 35px auto 0;
-  padding: 30px;
-  max-width: 600px;
-  background: #fff7fa;
-  border: 1px solid #eccbd7;
-  animation: fadeIn .8s ease;
+  max-width: 540px;
+  margin: 5px auto 30px;
+  padding: 28px 25px;
+  text-align: center;
+  border: 1px solid #b8a0df7a;
+  border-radius: 18px;
+  background: #211b3dd9;
+  box-shadow: 0 0 35px #ad8cff18;
+  animation: fadeIn .6s ease;
 }
 
-.hidden-message.show {
+.star-message.show {
   display: block;
 }
 
-.hidden-message p {
-  font-size: 18px;
+.star-message .message-symbol {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.star-message h3 {
+  font-size: 24px;
+  font-weight: normal;
+  color: #ffe2f0;
+  margin-bottom: 14px;
+}
+
+.star-message p {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #f0e6ff;
+}
+
+.star-progress {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #bdaedb;
+  font: 12px Arial, sans-serif;
+  letter-spacing: 1px;
+  margin: 12px 0 30px;
+}
+
+.final-reveal {
+  display: none;
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 25px auto 0;
+  padding: 32px 25px;
+  border: 1px solid #e9b8d9;
+  border-radius: 20px;
+  text-align: center;
+  background: linear-gradient(145deg, #372047, #1a1939);
+  box-shadow: 0 0 50px #d98bff25;
+  animation: fadeIn 1s ease;
+}
+
+.final-reveal.show {
+  display: block;
+}
+
+.final-reveal h3 {
+  color: #ffe0f0;
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 18px;
+}
+
+.final-reveal p {
+  font-size: 17px;
   line-height: 2;
-  color: #754157;
-  margin-bottom: 17px;
+  color: #f1e4fa;
+  margin-bottom: 16px;
+}
+
+.final-reveal .forever {
+  color: #ffbddd;
+  font-size: 22px;
+  font-style: italic;
+  margin-top: 20px;
 }
 
 footer {
@@ -338,7 +528,7 @@ footer p {
   line-height: 1.9;
 }
 
-footer .footer-heart {
+.footer-heart {
   font-size: 23px;
   margin-bottom: 8px;
 }
@@ -383,14 +573,33 @@ footer .footer-heart {
     max-height: 550px;
   }
 
-  .hero .intro {
-    line-height: 1.8;
+  .love-card p,
+  .letter p {
+    font-size: 16px;
   }
 
-  .love-card p,
-  .letter p,
-  .hidden-message p {
-    font-size: 16px;
+  .star-universe {
+    padding: 20px 12px 45px;
+    min-height: 620px;
+  }
+
+  .star-map {
+    height: 290px;
+  }
+
+  .star {
+    font-size: 29px;
+    padding: 8px;
+  }
+
+  .star-message,
+  .final-reveal {
+    padding: 23px 18px;
+  }
+
+  .star-message p,
+  .final-reveal p {
+    font-size: 15px;
   }
 }
 </style>
@@ -401,12 +610,13 @@ footer .footer-heart {
 <header class="hero">
   <div class="eyebrow">A little place made just for us</div>
   <div class="heart">❤️</div>
+
   <h1>Our Little<br><span>World</span></h1>
 
   <p class="intro">
-    For the man who made my world feel like home.
-    For my Bhagwat, my favourite person, my today
-    and all the tomorrows I dream of.
+    For the person who made my world feel like home.
+    My favourite person, my safest place, and all the
+    tomorrows I dream of.
   </p>
 
   <button class="main-button" onclick="showPage('home')">
@@ -420,7 +630,7 @@ footer .footer-heart {
   <button class="active" onclick="showPage('home', this)">Our Story ♡</button>
   <button onclick="showPage('memories', this)">Memories 📸</button>
   <button onclick="showPage('letter', this)">Love Letter 💌</button>
-  <button onclick="showPage('surprise', this)">Surprise 🎁</button>
+  <button onclick="showPage('surprise', this)">Our Universe 🌌</button>
 </nav>
 
 <main>
@@ -435,26 +645,25 @@ footer .footer-heart {
   <div class="love-card">
     <div class="ornament">♡ ❀ ♡</div>
 
-    <p>Dear Bhagwat,</p>
+    <p>To my love, ❤️</p>
 
     <p>
       Before you, I never knew that one person could feel like
-      a whole world. You came into my life and slowly became
-      my favourite hello, my safest place, and the person I
-      want to tell everything to.
+      a whole world. You became my favourite hello, my safest
+      place, and the person I want to tell everything to.
     </p>
 
     <p>
-      I love the little things about us — our silly moments,
-      our laughter over nothing, our ordinary days, and the
-      way even a simple moment feels special when I'm with you.
+      I love our silly moments, our laughter over nothing,
+      our ordinary days, and the way even a simple moment
+      feels special when we're together.
     </p>
 
     <p>
       I don't need a perfect life. I just want a real one with you.
-      A life where we keep choosing each other, where we grow
-      together, where we hold hands through the difficult days
-      and laugh about them when they become memories.
+      A life where we keep choosing each other, grow together,
+      hold hands through difficult days, and laugh about them
+      when they become memories.
     </p>
 
     <p>
@@ -464,7 +673,7 @@ footer .footer-heart {
     </p>
 
     <p>
-      Thank you for being my husband, my partner, my comfort,
+      Thank you for being my partner, my comfort, my best friend,
       and one of the most beautiful parts of my life.
     </p>
 
@@ -496,12 +705,12 @@ footer .footer-heart {
     <article class="memory">
       <img src="YSW02168.JPG" alt="A treasured moment together">
       <h3>My Kind of Happiness 💗</h3>
-      <p>It's not always about big surprises. Sometimes, happiness is simply looking at you and thinking, “That's my person.”</p>
+      <p>Sometimes happiness is simply looking at you and thinking, “That's my person.”</p>
     </article>
 
     <article class="memory">
       <img src="YSW01671.JPG" alt="A memory I will always treasure">
-      <h3>And So, My Forever Begins ♾️</h3>
+      <h3>My Forever ♾️</h3>
       <p>Whatever life brings us, I hope we never stop being best friends, falling in love, and finding our way back to each other.</p>
     </article>
 
@@ -511,12 +720,12 @@ footer .footer-heart {
 <section id="letter" class="page">
   <div class="section-heading">
     <div class="overline">Words from my heart</div>
-    <h2>A Letter to MY HUSBAND</h2>
+    <h2>A Letter to My Love</h2>
     <p>Things I may not say perfectly every day, but will always feel.</p>
   </div>
 
   <div class="letter">
-    <div class="to">My dearest LOVE, ❤️</div>
+    <div class="to">To my dearest love, ❤️</div>
 
     <p>
       Sometimes I look at you and wonder how I got so lucky.
@@ -526,38 +735,36 @@ footer .footer-heart {
 
     <p>
       You may not even realise how much the little things mean to me.
-      The way you care, the way you notice things, the way you make
-      me feel loved without needing a special occasion.
+      The way you care, the way you notice things, and the way you
+      make me feel loved without needing a special occasion.
       Those are the moments my heart remembers the most.
     </p>
 
     <p>
       I know we won't have perfect days every day.
       We may disagree, get tired, or have moments when life feels
-      difficult. But I want you to know that I don't just love you
-      for the beautiful days. I want to stand beside you on the
-      difficult ones too.
+      difficult. But I don't just love you for the beautiful days.
+      I want to stand beside you on the difficult ones too.
     </p>
 
     <p>
-      I want to watch us grow — to celebrate our little wins,
+      I want to watch us grow — celebrate our little wins,
       build our dreams, make a home full of laughter, collect
       memories in every place we go, and one day look back at
       our life and smile at how far we've come together.
     </p>
 
     <p>
-      If I could ask for one thing, it would be more time with you.
-      More morning smiles, more silly conversations, more hugs
-      after a long day, more adventures, and more ordinary days
-      that become extraordinary just because we're together.
+      I want more morning smiles, more silly conversations,
+      more hugs after a long day, more adventures, and more
+      ordinary days that become extraordinary just because
+      we're together.
     </p>
 
     <p>
-      BABY, you are not just the man I married.
-      You are the person my heart feels safest with, my favourite
-      part of every ordinary day, and the one I want beside me
-      in every version of my future.
+      You are my safe place, my favourite part of every ordinary
+      day, and the person I want beside me in every version
+      of my future.
     </p>
 
     <p>
@@ -566,7 +773,7 @@ footer .footer-heart {
     </p>
 
     <p>
-      And when we're older, with a thousand memories behind us,
+      When we're older, with a thousand memories behind us,
       I hope I'll still hold your hand, look at you the same way,
       and feel that same little happiness in my heart:
       “It's still you. It has always been you.”
@@ -581,62 +788,113 @@ footer .footer-heart {
   </div>
 </section>
 
+<!-- INTERACTIVE STAR SURPRISE -->
+
 <section id="surprise" class="page">
+
   <div class="section-heading">
-    <div class="overline">A tiny secret for you</div>
-    <h2>One Last Thing, My Love</h2>
-    <p>Because even a whole website isn't enough to tell you how much you mean to me.</p>
+    <div class="overline">A little magic, just for us</div>
+    <h2>The Universe Chose You ✨</h2>
+    <p>Somewhere between all the stars and all the possibilities, my heart found you.</p>
   </div>
 
-  <div class="surprise-box">
-    <div class="gift">🎁</div>
+  <div class="star-universe">
 
-    <p style="font-size:19px; line-height:1.9; margin-bottom:28px;">
-      My love, there's something I want you to remember,
-      even on the days when I forget to say it.
-    </p>
-
-    <button class="main-button" onclick="revealSurprise()">
-      Open Your Surprise 💗
-    </button>
-
-    <div id="hiddenMessage" class="hidden-message">
-      <div class="heart">💖</div>
-
-      <p><strong>Bhagwat, you are my answered prayer.</strong></p>
-
+    <div class="star-intro">
       <p>
-        I don't know what every chapter of our life will look like,
-        but I know whose hand I want to hold while we turn each page.
-        Yours. Always yours.
+        There are billions of stars in the sky.
+        Tap each glowing star to unlock a little piece of my heart.
       </p>
-
-      <p>
-        I want a lifetime of us — sleepy morning cuddles,
-        random kisses, silly fights that end in hugs,
-        spontaneous trips, shared dreams, and a love that
-        becomes gentler and stronger with every passing year.
-      </p>
-
-      <p>
-        When the world gets loud, let's be each other's peace.
-        When life changes, let's grow together.
-        And whenever you wonder how much you mean to me,
-        remember this little corner of the internet:
-        I made it because my heart has so much love for you
-        that it needed somewhere to put it.
-      </p>
-
-      <p>
-        <strong>If I get a thousand tomorrows, I want all of them with you.</strong>
-      </p>
-
-      <p style="font-size:25px; color:#a13c61;">
-        I love you, my Bhagwat. Today, tomorrow, always. ♾️❤️
-      </p>
-
-      <div class="signature">— Your Samiksha 💋</div>
+      <p class="hint">✦ FIND ALL 6 STARS TO REVEAL YOUR FINAL SURPRISE ✦</p>
     </div>
+
+    <div class="star-map">
+
+      <svg class="star-line" viewBox="0 0 600 340" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M90 75 L225 125 L355 65 L490 130 L410 235 L205 260 L90 75"/>
+      </svg>
+
+      <button class="star" style="left:15%;top:22%" onclick="openStar(0,this)" aria-label="Open star one">
+        ✦<span class="star-number">01</span>
+      </button>
+
+      <button class="star" style="left:37%;top:37%" onclick="openStar(1,this)" aria-label="Open star two">
+        ✧<span class="star-number">02</span>
+      </button>
+
+      <button class="star" style="left:59%;top:19%" onclick="openStar(2,this)" aria-label="Open star three">
+        ✦<span class="star-number">03</span>
+      </button>
+
+      <button class="star" style="left:82%;top:38%" onclick="openStar(3,this)" aria-label="Open star four">
+        ✧<span class="star-number">04</span>
+      </button>
+
+      <button class="star" style="left:68%;top:69%" onclick="openStar(4,this)" aria-label="Open star five">
+        ✦<span class="star-number">05</span>
+      </button>
+
+      <button class="star" style="left:34%;top:77%" onclick="openStar(5,this)" aria-label="Open star six">
+        ✧<span class="star-number">06</span>
+      </button>
+
+    </div>
+
+    <div class="star-progress" id="starProgress" aria-live="polite">
+      0 OF 6 STARS DISCOVERED ✨
+    </div>
+
+    <div class="star-message" id="starMessage" aria-live="polite">
+      <div class="message-symbol" id="messageSymbol">💗</div>
+      <h3 id="messageTitle">A little secret</h3>
+      <p id="messageText"></p>
+    </div>
+
+    <div class="final-reveal" id="finalReveal">
+      <div class="heart">💖</div>
+      <h3>My Favourite Miracle</h3>
+
+      <p>
+        Out of billions of people, countless stars, and a million
+        possible stories, somehow, I got you.
+      </p>
+
+      <p>
+        If the universe gave me a thousand chances to begin again,
+        I would still hope to find you in every lifetime.
+      </p>
+
+      <p>
+        I can't promise that every day will be easy. But I can
+        promise that my heart will keep choosing you through
+        the beautiful days, the difficult days, and all the
+        ordinary days in between.
+      </p>
+
+      <p>
+        Wherever life takes us, I hope we keep making memories,
+        holding hands, laughing at silly things, and building
+        a little world that belongs only to us.
+      </p>
+
+      <p>
+        And if one day we sit together under the night sky,
+        older and full of memories, I hope I can still look
+        at you and whisper:
+      </p>
+
+      <p class="forever">
+        “In every universe, it would still be you.” ♾️
+      </p>
+
+      <p>
+        You are my favourite chapter, my safest place,
+        and my most beautiful forever.
+      </p>
+
+      <div class="signature">With all my heart, Samiksha ❤️</div>
+    </div>
+
   </div>
 </section>
 
@@ -645,7 +903,7 @@ footer .footer-heart {
 <footer>
   <div class="footer-heart">❤️</div>
   <p>Our Little World</p>
-  <p>Made with all my love, for Bhagwat.</p>
+  <p>Made with all my love, just for you.</p>
   <p>Two hearts. One home. A thousand tomorrows. ♾️</p>
 </footer>
 
@@ -667,30 +925,83 @@ function showPage(pageId, button) {
     document.querySelectorAll('nav button')[0].classList.add('active');
   }
 
-  document.querySelector('nav').scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
-  });
+  window.scrollTo({ top: document.querySelector('nav').offsetTop, behavior: 'smooth' });
 }
 
-function revealSurprise() {
-  var message = document.getElementById('hiddenMessage');
-  message.classList.toggle('show');
+const starMessages = [
+  {
+    symbol: "🌙",
+    title: "You Feel Like Home",
+    text: "No matter how far we travel or how much the world changes, home will always be the feeling I find when I'm beside you."
+  },
+  {
+    symbol: "💗",
+    title: "My Favourite Person",
+    text: "You are the person I want to tell my little stories to, share my happiest news with, and reach for when I need a hug."
+  },
+  {
+    symbol: "✨",
+    title: "My Everyday Magic",
+    text: "You don't have to make every day extraordinary. Sometimes, just being there is enough to make an ordinary day my favourite."
+  },
+  {
+    symbol: "🫶",
+    title: "My Promise",
+    text: "I promise to keep learning you, laughing with you, growing beside you, and remembering that we're on the same team."
+  },
+  {
+    symbol: "🌷",
+    title: "A Thousand Tomorrows",
+    text: "I dream of all the little things ahead of us — new places, shared meals, sleepy mornings, familiar hugs, and memories we haven't made yet."
+  },
+  {
+    symbol: "♾️",
+    title: "In Every Lifetime",
+    text: "If I could make one wish across every universe, it would be to find my way to you again. Different stars, different stories, but still you."
+  }
+];
 
-  if (message.classList.contains('show')) {
-    message.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
-    });
+const discoveredStars = new Set();
+
+function openStar(index, button) {
+  const message = starMessages[index];
+
+  document.getElementById('messageSymbol').textContent = message.symbol;
+  document.getElementById('messageTitle').textContent = message.title;
+  document.getElementById('messageText').textContent = message.text;
+
+  const messageBox = document.getElementById('starMessage');
+  messageBox.classList.remove('show');
+
+  // Restart the reveal animation.
+  void messageBox.offsetWidth;
+  messageBox.classList.add('show');
+
+  discoveredStars.add(index);
+  button.classList.add('found');
+
+  document.getElementById('starProgress').textContent =
+    discoveredStars.size + ' OF 6 STARS DISCOVERED ✨';
+
+  if (discoveredStars.size === starMessages.length) {
+    const finalBox = document.getElementById('finalReveal');
+    finalBox.classList.add('show');
+
+    setTimeout(function() {
+      finalBox.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }, 250);
   }
 }
 
 // Soft floating hearts
 function createHeart() {
-  var heart = document.createElement('div');
+  const heart = document.createElement('div');
   heart.className = 'floating-heart';
 
-  var hearts = ['♡', '♥', '💗', '💕'];
+  const hearts = ['♡', '♥', '💗', '💕'];
   heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
 
   heart.style.left = Math.random() * 100 + 'vw';
@@ -706,7 +1017,7 @@ function createHeart() {
   }, 5000);
 }
 
-setInterval(createHeart, 900);
+setInterval(createHeart, 1200);
 </script>
 
 </body>
